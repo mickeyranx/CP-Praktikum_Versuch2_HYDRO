@@ -171,7 +171,8 @@ vector<double> next_energy_adv(int N ,double step, vector<double> F_m) {
 }
 
 void simulate_next_euler_step(int N, double step) {
-    
+
+    //1. advection step
     //boundary conditions for _prev vectors are  already applied through first time or end of this method
 
     //start with density which also return F_m profile for the calculation of the next step
@@ -203,9 +204,9 @@ void simulate_next_euler_step(int N, double step) {
 
     
 
-    //apply forces and work done by pressure
-    // 
-    //1.calculate pressure
+    //2. apply work done by pressure
+    
+    //calculate pressure
     vector<double> pressure(N+4, 0);
     for (int j = 2; j < N+2; j++)
     {
